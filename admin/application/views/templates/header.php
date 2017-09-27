@@ -2,7 +2,7 @@
 <html lang="en">
 <html>
     <head>
-        <title>SOCIANOVATION Web Administration</title>
+        <title>PEDULI BADAK Web Administration</title>
         <link rel="stylesheet" href="<?php echo base_url('assets/bootstrap/css/bootstrap.min.css') ?>"/>
         <link rel="stylesheet" href="<?php echo base_url('assets/datatables/dataTables.bootstrap.css') ?>"/>
         <link href="<?php echo base_url('assets/vendor/font-awesome/css/font-awesome.min.css') ?>" rel="stylesheet">
@@ -45,7 +45,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="<?php echo site_url('home'); ?>">SOCIANOVATION</a>
+					<a class="navbar-brand" href="http://sleekr.co">SLEEKR</a>
 				</div>
 				<!-- /.navbar-header -->
 
