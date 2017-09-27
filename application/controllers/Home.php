@@ -1,11 +1,10 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Home extends CI_Controller {
+class Home extends MY_Controller {
 
 	public function index()
 	{
-		$this->lang->load('message', 'english');
 		$this->load->view('home/index_view', 
 			$this->initialize_data_from_db()
 		);
@@ -13,7 +12,7 @@ class Home extends CI_Controller {
 
 	private function initialize_data_from_db()
 	{
-		$home_sliders = $this->db->query("SELECT * FROM home_sliders")->result_array();
+		/*$home_sliders = $this->db->query("SELECT * FROM home_sliders")->result_array();
 
 		$our_values = $this->db->query("SELECT * FROM our_values")->result_array();
 
@@ -37,6 +36,8 @@ class Home extends CI_Controller {
 			'clients' => $clients
 			);
 
-		return $data;
+		return $data;*/
+
+		return [];
 	}
 }
