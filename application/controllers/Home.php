@@ -5,6 +5,10 @@ class Home extends CI_Controller {
 
 	public function index()
 	{
+		$this->lang->load('message', 'english');
+
+		echo $this->lang->line('test');
+		exit;
 		$this->load->view('home/index_view', 
 			$this->initialize_data_from_db()
 		);
