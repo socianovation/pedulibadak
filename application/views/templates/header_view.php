@@ -20,7 +20,7 @@
 <div id="header">
 	<div class="container">
 		<header>
-			<a href="index.html" id="logo" class="pull-left">
+			<a href="<?php echo base_url();?>" id="logo" class="pull-left">
 				<img src="<?php echo base_url(); ?>assets/images/logo.png" alt="" width="130" href="80">
 			</a>
 			<nav class="pull-right fwb fz12 visible-lg">

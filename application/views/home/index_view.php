@@ -6,9 +6,7 @@
 			<div class="fz20 fwb ttu c-primary">peduli populasi</div>
 			<br>
 			<p class="ff-times tti lpn fsi fz18">
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br>
-				Cras ultricies ligula sed magna dictum porta. Pellentesque <br>
-				in ipsum id orci porta dapibus.
+			Menyelamatkan visi Rhino International adalah agar kelima spesies badak berkembang dengan pesat di masa depan untuk generasi mendatang.
 			</p>
 		</div>
 	</div>
@@ -36,9 +34,9 @@
 			<div class="col-sm-6 col-md-4 card-item-col">
 				<div class="card-item">
 					<div class="card-item-img" style="background:url('<?php echo $g['source']; ?>'); background-position:center; background-size:100%;">
-						<i class="fa fa-image img-empty"></i>
+						
 					</div>
-					<a href="page.html" class="card-item-title p20">
+					<a href="#" class="card-item-title p20">
 						<div class="fwb ttu fz18">
 							<?php echo $g['title']; ?>
 						</div>
@@ -58,7 +56,7 @@
 				BADAK
 			</div>
 			<div class="fwb fz20 txt-red">
-				Lorem ipsum dolor sit amet
+				Selamatkan Badak
 			</div>
 		</div>
 	</div>
