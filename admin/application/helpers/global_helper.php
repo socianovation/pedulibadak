@@ -6,6 +6,8 @@
 	</li><li>
 		<a href="'.site_url('behaviour').'"><i class="fa fa-list fa-fw"></i> Behaviour</a>
 	</li><li>
+		<a href="'.site_url('contact').'"><i class="fa fa-list fa-fw"></i> Contact</a>
+	</li><li>
 		<a href="'.site_url('evolutions').'"><i class="fa fa-list fa-fw"></i> Evolutions</a>
 	</li><li>
 		<a href="'.site_url('fun_fact').'"><i class="fa fa-list fa-fw"></i> Fun fact</a>

@@ -3,13 +3,13 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class About_us extends CI_Controller
+class Contact extends CI_Controller
 {
     function __construct()
     {
         parent::__construct();
 
-        $this->load->model('About_us_model');
+        $this->load->model('Contact_model');
         $this->load->library('form_validation');
 
         if(!$this->session->userdata('logined') || $this->session->userdata('logined') != true)
@@ -21,28 +21,28 @@ class About_us extends CI_Controller
 
     public function index()
     {
-        $this->load->view('about_us/about_us_list');
+        $this->load->view('contact/contact_list');
     } 
     
     public function json() {
         header('Content-Type: application/json');
-        echo $this->About_us_model->json();
+        echo $this->Contact_model->json();
     }
 
     public function read($id) 
     {
-        $row = $this->About_us_model->get_by_id($id);
+        $row = $this->Contact_model->get_by_id($id);
         if ($row) {
             $data = array(
 		'id' => $row->id,
-		'title' => $row->title,
-		'content' => $row->content,
-		'type' => $row->type,
+		'email' => $row->email,
+		'message' => $row->message,
+		'created_at' => $row->created_at,
 	    );
-            $this->load->view('about_us/about_us_read', $data);
+            $this->load->view('contact/contact_read', $data);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
-            redirect(site_url('about_us'));
+            redirect(site_url('contact'));
         }
     }
 
@@ -50,13 +50,13 @@ class About_us extends CI_Controller
     {
         $data = array(
             'button' => 'Create',
-            'action' => site_url('about_us/create_action'),
+            'action' => site_url('contact/create_action'),
 	    'id' => set_value('id'),
-	    'title' => set_value('title'),
-	    'content' => set_value('content'),
-	    'type' => set_value('type'),
+	    'email' => set_value('email'),
+	    'message' => set_value('message'),
+	    'created_at' => set_value('created_at'),
 	);
-        $this->load->view('about_us/about_us_form', $data);
+        $this->load->view('contact/contact_form', $data);
     }
     
     public function create_action() 
@@ -67,34 +67,34 @@ class About_us extends CI_Controller
             $this->create();
         } else {
             $data = array(
-		'title' => $this->input->post('title',TRUE),
-		'content' => $this->input->post('content',TRUE),
-		'type' => $this->input->post('type',TRUE),
+		'email' => $this->input->post('email',TRUE),
+		'message' => $this->input->post('message',TRUE),
+		'created_at' => $this->input->post('created_at',TRUE),
 	    );
 
-            $this->About_us_model->insert($data);
+            $this->Contact_model->insert($data);
             $this->session->set_flashdata('message', 'Create Record Success');
-            redirect(site_url('about_us'));
+            redirect(site_url('contact'));
         }
     }
     
     public function update($id) 
     {
-        $row = $this->About_us_model->get_by_id($id);
+        $row = $this->Contact_model->get_by_id($id);
 
         if ($row) {
             $data = array(
                 'button' => 'Update',
-                'action' => site_url('about_us/update_action'),
+                'action' => site_url('contact/update_action'),
 		'id' => set_value('id', $row->id),
-		'title' => set_value('title', $row->title),
-		'content' => set_value('content', $row->content),
-		'type' => set_value('type', $row->type),
+		'email' => set_value('email', $row->email),
+		'message' => set_value('message', $row->message),
+		'created_at' => set_value('created_at', $row->created_at),
 	    );
-            $this->load->view('about_us/about_us_form', $data);
+            $this->load->view('contact/contact_form', $data);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
-            redirect(site_url('about_us'));
+            redirect(site_url('contact'));
         }
     }
     
@@ -106,36 +106,36 @@ class About_us extends CI_Controller
             $this->update($this->input->post('id', TRUE));
         } else {
             $data = array(
-		'title' => $this->input->post('title',TRUE),
-		'content' => $this->input->post('content',TRUE),
-		'type' => $this->input->post('type',TRUE),
+		'email' => $this->input->post('email',TRUE),
+		'message' => $this->input->post('message',TRUE),
+		'created_at' => $this->input->post('created_at',TRUE),
 	    );
 
-            $this->About_us_model->update($this->input->post('id', TRUE), $data);
+            $this->Contact_model->update($this->input->post('id', TRUE), $data);
             $this->session->set_flashdata('message', 'Update Record Success');
-            redirect(site_url('about_us'));
+            redirect(site_url('contact'));
         }
     }
     
     public function delete($id) 
     {
-        $row = $this->About_us_model->get_by_id($id);
+        $row = $this->Contact_model->get_by_id($id);
 
         if ($row) {
-            $this->About_us_model->delete($id);
+            $this->Contact_model->delete($id);
             $this->session->set_flashdata('message', 'Delete Record Success');
-            redirect(site_url('about_us'));
+            redirect(site_url('contact'));
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
-            redirect(site_url('about_us'));
+            redirect(site_url('contact'));
         }
     }
 
     public function _rules() 
     {
-	$this->form_validation->set_rules('title', 'title', 'trim|required');
-	$this->form_validation->set_rules('content', 'content', 'trim|required');
-	$this->form_validation->set_rules('type', 'type', 'trim|required');
+	$this->form_validation->set_rules('email', 'email', 'trim|required');
+	$this->form_validation->set_rules('message', 'message', 'trim|required');
+	$this->form_validation->set_rules('created_at', 'created at', 'trim|required');
 
 	$this->form_validation->set_rules('id', 'id', 'trim');
 	$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
@@ -144,8 +144,8 @@ class About_us extends CI_Controller
     public function excel()
     {
         $this->load->helper('exportexcel');
-        $namaFile = "about_us.xls";
-        $judul = "about_us";
+        $namaFile = "contact.xls";
+        $judul = "contact";
         $tablehead = 0;
         $tablebody = 1;
         $nourut = 1;
@@ -163,18 +163,18 @@ class About_us extends CI_Controller
 
         $kolomhead = 0;
         xlsWriteLabel($tablehead, $kolomhead++, "No");
-	xlsWriteLabel($tablehead, $kolomhead++, "Title");
-	xlsWriteLabel($tablehead, $kolomhead++, "Content");
-	xlsWriteLabel($tablehead, $kolomhead++, "Type");
+	xlsWriteLabel($tablehead, $kolomhead++, "Email");
+	xlsWriteLabel($tablehead, $kolomhead++, "Message");
+	xlsWriteLabel($tablehead, $kolomhead++, "Created At");
 
-	foreach ($this->About_us_model->get_all() as $data) {
+	foreach ($this->Contact_model->get_all() as $data) {
             $kolombody = 0;
 
             //ubah xlsWriteLabel menjadi xlsWriteNumber untuk kolom numeric
             xlsWriteNumber($tablebody, $kolombody++, $nourut);
-	    xlsWriteLabel($tablebody, $kolombody++, $data->title);
-	    xlsWriteLabel($tablebody, $kolombody++, $data->content);
-	    xlsWriteLabel($tablebody, $kolombody++, $data->type);
+	    xlsWriteLabel($tablebody, $kolombody++, $data->email);
+	    xlsWriteLabel($tablebody, $kolombody++, $data->message);
+	    xlsWriteLabel($tablebody, $kolombody++, $data->created_at);
 
 	    $tablebody++;
             $nourut++;
@@ -187,20 +187,20 @@ class About_us extends CI_Controller
     public function word()
     {
         header("Content-type: application/vnd.ms-word");
-        header("Content-Disposition: attachment;Filename=about_us.doc");
+        header("Content-Disposition: attachment;Filename=contact.doc");
 
         $data = array(
-            'about_us_data' => $this->About_us_model->get_all(),
+            'contact_data' => $this->Contact_model->get_all(),
             'start' => 0
         );
         
-        $this->load->view('about_us/about_us_doc',$data);
+        $this->load->view('contact/contact_doc',$data);
     }
 
 }
 
-/* End of file About_us.php */
-/* Location: ./application/controllers/About_us.php */
+/* End of file Contact.php */
+/* Location: ./application/controllers/Contact.php */
 /* Please DO NOT modify this information : */
 /* Generated by Harviacode Codeigniter CRUD Generator 2017-09-28 06:25:00 */
 /* http://harviacode.com */
