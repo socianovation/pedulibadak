@@ -25,13 +25,15 @@ class About_us extends MY_Controller {
 	{
 		$post = $this->input->post();
 		
-		//Insert to DB
-		$sql = "INSERT INTO `contact` VALUES(?,?,?,?)";
-		$this->db->query($sql, array('',$post['email'], $post['message'], date("Y-m-d H:i:s")));
+		if((isset($post['email']) && $post['email'] == "") || (isset($post['message']) && $post['message'] == "")){
+			echo 'not done';
+		}else{
+			//Insert to DB
+			$sql = "INSERT INTO `contact` VALUES(?,?,?,?)";
+			$this->db->query($sql, array('',$post['email'], $post['message'], date("Y-m-d H:i:s")));
 
-		echo 'ok';
-
+			echo 'ok';
+		}
 		return false;
-		
 	}
 }
