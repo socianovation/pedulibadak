@@ -23,15 +23,22 @@ class Home extends MY_Controller {
 		);
 	}
 
-	public function edu(){
-		$this->load->view('home/education_view', 
-		$this->initialize_data_from_db()
+	public function edu($type = 'beha'){		
+		$params = $this->initialize_data_from_db();
+		$params['type'] = $type;
+		$this->load->view('home/education_view', $params	
 		);
 	}
 
 	public function gallery(){
 		$this->load->view('home/gallery_view', 
 		$this->initialize_data_from_db()
+		);
+	}
+
+	public function donate(){
+		$params = $this->initialize_data_from_db();
+		$this->load->view('home/donation_view', $params	
 		);
 	}
 
