@@ -17,6 +17,24 @@ class Home extends MY_Controller {
 		);
 	}
 
+	public function notfound(){
+		$this->load->view('home/404_view', 
+			$this->initialize_data_from_db()
+		);
+	}
+
+	public function edu(){
+		$this->load->view('home/education_view', 
+		$this->initialize_data_from_db()
+		);
+	}
+
+	public function gallery(){
+		$this->load->view('home/gallery_view', 
+		$this->initialize_data_from_db()
+		);
+	}
+
 	private function initialize_data_from_db()
 	{
 		/*$home_sliders = $this->db->query("SELECT * FROM home_sliders")->result_array();
@@ -47,8 +65,12 @@ class Home extends MY_Controller {
 
 		$gallery = $this->db->query("SELECT * FROM gallery")->result_array();
 
+
+		$journal = $this->db->query("SELECT * from journal")->result_array();
+
 		$data = array(
-			'gallery' => $gallery
+			'gallery' => $gallery,
+			'journal' => $journal
 		);
 
 		return $data;
