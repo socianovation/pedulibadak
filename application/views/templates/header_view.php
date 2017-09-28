@@ -40,6 +40,10 @@
 				GALLERY
 			</a>
 			<span class="mr5 ml5 fwn">|</span>
+			<a href="<?php echo base_url('home/store');?>" class="ttu">
+				STORE
+			</a>
+			<span class="mr5 ml5 fwn">|</span>
 			<a href="<?php echo base_url('about_us');?>" class="ttu">
 				ABOUT US
 			</a>

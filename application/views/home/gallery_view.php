@@ -14,7 +14,7 @@
                         <?php if($g['type'] == "image") { ?>
                         <div class="card-item-img" style="background-image: url('<?php echo $g['source']?>')"></div>
                         <div class="clearfix card-border">
-                            <a href="detail.html" class="card-item-link fwb ttu p20 dib">
+                            <a href="<?php echo site_url('home/detail_gallery?id='.$g['id']); ?>" class="card-item-link fwb ttu p20 dib">
                                 Lihat gambar
                                 <i class="fa fa-long-arrow-right ml5"></i>
                             </a>
@@ -24,7 +24,7 @@
                         <?php if($g['type'] == "video") { ?>
                         <div class="card-item-img" style="background-image: url('<?php echo $g['source']?>')"></div>
                         <div class="clearfix card-border">
-                            <a href="detail.html" class="card-item-link fwb ttu p20 dib">
+                            <a href="<?php echo site_url('home/detail_gallery?id='.$g['id']); ?>" class="card-item-link fwb ttu p20 dib">
                                 Lihat video
                                 <i class="fa fa-long-arrow-right ml5"></i>
                             </a>
