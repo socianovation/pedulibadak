@@ -36,6 +36,12 @@ class Home extends MY_Controller {
 		);
 	}
 
+	public function detail_gallery(){
+		$get = $this->input->get();
+		$gallery = $this->db->query("SELECT * FROM gallery WHERE id = ".$get['id'])->row_array();
+		$this->load->view('home/detail_gallery_view', array('gallery' => $gallery));
+	}
+
 	public function donate(){
 		$params = $this->initialize_data_from_db();
 		$this->load->view('home/donation_view', $params	
