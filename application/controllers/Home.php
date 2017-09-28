@@ -35,6 +35,12 @@ class Home extends MY_Controller {
 		);
 	}
 
+	public function event(){
+		$this->load->view('home/event_view', 
+		$this->initialize_data_from_db()
+		);
+	}
+
 	private function initialize_data_from_db()
 	{
 		/*$home_sliders = $this->db->query("SELECT * FROM home_sliders")->result_array();
@@ -65,12 +71,13 @@ class Home extends MY_Controller {
 
 		$gallery = $this->db->query("SELECT * FROM gallery")->result_array();
 
-
+		$event = $this->db->query("SELECT * FROM news_events")->result_array();
 		$journal = $this->db->query("SELECT * from journal")->result_array();
 
 		$data = array(
 			'gallery' => $gallery,
-			'journal' => $journal
+			'journal' => $journal,
+			'event' => $event
 		);
 
 		return $data;
