@@ -12,6 +12,8 @@
 	</li><li>
 		<a href="'.site_url('gallery').'"><i class="fa fa-list fa-fw"></i> Gallery</a>
 	</li><li>
+		<a href="'.site_url('journal').'"><i class="fa fa-list fa-fw"></i> Journal</a>
+	</li><li>
 		<a href="'.site_url('news_events').'"><i class="fa fa-list fa-fw"></i> News events</a>
 	</li><li>
 		<a href="'.site_url('statistic').'"><i class="fa fa-list fa-fw"></i> Statistic</a>
