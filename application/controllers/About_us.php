@@ -20,4 +20,18 @@ class About_us extends MY_Controller {
 
 		return $data;
 	}
+
+	public function contact()
+	{
+		$post = $this->input->post();
+		
+		//Insert to DB
+		$sql = "INSERT INTO `contact` VALUES(?,?,?,?)";
+		$this->db->query($sql, array('',$post['email'], $post['message'], date("Y-m-d H:i:s")));
+
+		echo 'ok';
+
+		return false;
+		
+	}
 }
