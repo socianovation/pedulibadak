@@ -24,14 +24,30 @@
 				<img src="<?php echo base_url(); ?>assets/images/logo.png" alt="" width="130" href="80">
 			</a>
 			<nav class="pull-right fwb fz12 visible-lg">
-				<a href="signin.html" class="ttu">
-					SIGN IN
-				</a>
-				<span class="mr5 ml5 fwn">|</span>
-				<a href="signup.html" class="ttu">
-					REGISTER
-				</a>
-			</nav>
+			<a href="signin.html" class="ttu">
+				HOME
+			</a>
+			<span class="mr5 ml5 fwn">|</span>
+			<a href="signin.html" class="ttu">
+				EDUCATION
+			</a>
+			<span class="mr5 ml5 fwn">|</span>
+			<a href="signin.html" class="ttu">
+				JURNAL
+			</a>
+			<span class="mr5 ml5 fwn">|</span>
+			<a href="signin.html" class="ttu">
+				GALLERY
+			</a>
+			<span class="mr5 ml5 fwn">|</span>
+			<a href="signin.html" class="ttu">
+				ABOUT US
+			</a>
+			<span class="mr5 ml5 fwn">|</span>
+			<a href="signup.html" class="ttu">
+				DONATION
+			</a>
+		</nav>
 			<nav class="pull-right hidden-lg">
 				<div class="nav-xs-trigger">
 					<i class="fa fa-bars"></i>
