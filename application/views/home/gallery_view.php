@@ -18,6 +18,7 @@
                                 Lihat gambar
                                 <i class="fa fa-long-arrow-right ml5"></i>
                             </a>
+                        </div>
                         <?php } ?>
 
                         <?php if($g['type'] == "video") { ?>
@@ -27,8 +28,8 @@
                                 Lihat video
                                 <i class="fa fa-long-arrow-right ml5"></i>
                             </a>
-                        <?php } ?>
                         </div>
+                        <?php } ?>
                     </div>
                 </div>
                 <?php } ?>
