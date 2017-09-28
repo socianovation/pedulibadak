@@ -10,6 +10,13 @@ class Home extends MY_Controller {
 		);
 	}
 
+	public function jurnal()
+	{
+		$this->load->view('home/jurnal_view', 
+			$this->initialize_data_from_db()
+		);
+	}
+
 	private function initialize_data_from_db()
 	{
 		/*$home_sliders = $this->db->query("SELECT * FROM home_sliders")->result_array();
