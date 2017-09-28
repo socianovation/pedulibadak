@@ -1,6 +1,6 @@
 RewriteEngine on
-RewriteBase /amco/
+RewriteBase /
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d 
 RewriteCond $1 !^(index\.php|images|robots\.txt|css|fonts|js|assets|tester|google896ddaf02d796607.html|info.php|generator|sitemap.xml|ror.xml)
-RewriteRule  ^(.*)$ /amco/index.php/$1 [L]
+RewriteRule  ^(.*)$ /index.php/$1 [L]
