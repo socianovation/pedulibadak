@@ -10,11 +10,6 @@
 				Cras ultricies ligula sed magna dictum porta. Pellentesque <br>
 				in ipsum id orci porta dapibus.
 			</p>
-			<br>
-			<a href="page.html" class="btn btn-arrow-red fwb ttu">
-				Read recipe
-				<i class="fa fa-long-arrow-right"></i>
-			</a>
 		</div>
 	</div>
 </div>
@@ -37,153 +32,23 @@
 <div class="grey-section">
 	<div class="container container-p40">
 		<div class="row card-container">
+			<?php foreach($gallery as $g){ ?>
 			<div class="col-sm-6 col-md-4 card-item-col">
 				<div class="card-item">
-					<div class="card-item-img">
+					<div class="card-item-img" style="background:url('<?php echo $g['source']; ?>'); background-position:center; background-size:100%;">
 						<i class="fa fa-image img-empty"></i>
 					</div>
 					<a href="page.html" class="card-item-title p20">
 						<div class="fwb ttu fz18">
-							SPICY SMOKE BEEF STEAK
+							<?php echo $g['title']; ?>
 						</div>
 					</a>
 					<div class="card-item-author fsi ff-times p20 fz16">
-						Lina Viana
-					</div>
-					<div class="clearfix card-border">
-						<div class="card-item-love txt-red p20 dib fwb">
-							<i class="fa fa-heart"></i>
-							50
-						</div>
-						<a href="page.html" class="card-item-link fwb ttu p20 dib">
-							Read recipe
-							<i class="fa fa-long-arrow-right ml5"></i>
-						</a>
+						<?php echo $g['description']; ?>
 					</div>
 				</div>
 			</div>
-			<div class="col-sm-6 col-md-4 card-item-col">
-				<div class="card-item">
-					<div class="card-item-img"></div>
-					<a href="page.html" class="card-item-title p20">
-						<div class="fwb ttu fz18">
-							CHOCO PEANUT SANDWICH
-						</div>
-					</a>
-					<div class="card-item-author fsi ff-times p20 fz16">
-						Magenta Sarah
-					</div>
-					<div class="clearfix card-border">
-						<div class="card-item-love txt-red p20 dib fwb">
-							<i class="fa fa-heart"></i>
-							5
-						</div>
-						<a href="page.html" class="card-item-link fwb ttu p20 dib">
-							Read recipe
-							<i class="fa fa-long-arrow-right ml5"></i>
-						</a>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-6 col-md-4 card-item-col">
-				<div class="card-item">
-					<div class="card-item-img"></div>
-					<a href="page.html" class="card-item-title p20">
-						<div class="fwb ttu fz18">
-							STRAWBERRY PUDDING SUGAR
-						</div>
-					</a>
-					<div class="card-item-author fsi ff-times p20 fz16">
-						Johna
-					</div>
-					<div class="clearfix card-border">
-						<div class="card-item-love txt-red p20 dib fwb">
-							<i class="fa fa-heart"></i>
-							50
-						</div>
-						<a href="page.html" class="card-item-link fwb ttu p20 dib">
-							Read recipe
-							<i class="fa fa-long-arrow-right ml5"></i>
-						</a>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-6 col-md-4 card-item-col">
-				<div class="card-item">
-					<div class="card-item-img"></div>
-					<a href="page.html" class="card-item-title p20">
-						<div class="fwb ttu fz18">
-							REDBERRY PUDDING CREAM
-						</div>
-					</a>
-					<div class="card-item-author fsi ff-times p20 fz16">
-						Lina Viana
-					</div>
-					<div class="clearfix card-border">
-						<div class="card-item-love txt-red p20 dib fwb">
-							<i class="fa fa-heart"></i>
-							1k
-						</div>
-						<a href="page.html" class="card-item-link fwb ttu p20 dib">
-							Read recipe
-							<i class="fa fa-long-arrow-right ml5"></i>
-						</a>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-6 col-md-4 card-item-col">
-				<div class="card-item">
-					<div class="card-item-img"></div>
-					<a href="page.html" class="card-item-title p20">
-						<div class="fwb ttu fz18">
-							BANANA FLOWER
-						</div>
-					</a>
-					<div class="card-item-author fsi ff-times p20 fz16">
-						Magenta Sarah
-					</div>
-					<div class="clearfix card-border">
-						<div class="card-item-love txt-red p20 dib fwb">
-							<i class="fa fa-heart"></i>
-							3
-						</div>
-						<a href="page.html" class="card-item-link fwb ttu p20 dib">
-							Read recipe
-							<i class="fa fa-long-arrow-right ml5"></i>
-						</a>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-6 col-md-4 card-item-col">
-				<div class="card-item">
-					<div class="card-item-img"></div>
-					<a href="page.html" class="card-item-title p20">
-						<div class="fwb ttu fz18">
-							STRAWBERRY PUDDING SUGAR
-						</div>
-					</a>
-					<div class="card-item-author fsi ff-times p20 fz16">
-						Johna
-					</div>
-					<div class="clearfix card-border">
-						<div class="card-item-love txt-red p20 dib fwb">
-							<i class="fa fa-heart"></i>
-							50
-						</div>
-						<a href="page.html" class="card-item-link fwb ttu p20 dib">
-							Read recipe
-							<i class="fa fa-long-arrow-right ml5"></i>
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row tac mt20">
-			<a href="page.html" class="btn btn-arrow-red fwb ttu">
-				Load more recipe
-				<i class="fa fa-long-arrow-right"></i>
-			</a>
-		</div>
+			<?php } ?>
 	</div>
 </div>
 <div class="blog-section" style="background-image: url('<?php echo base_url(); ?>assets/images/img-tips.png')">
@@ -195,12 +60,6 @@
 			<div class="fwb fz20 txt-red">
 				Lorem ipsum dolor sit amet
 			</div>
-		</div>
-		<div class="row tac mt40">
-			<a href="page.html" class="btn btn-arrow-white fwb ttu">
-				Read tips
-				<i class="fa fa-long-arrow-right"></i>
-			</a>
 		</div>
 	</div>
 </div>

@@ -38,6 +38,12 @@ class Home extends MY_Controller {
 
 		return $data;*/
 
-		return [];
+		$gallery = $this->db->query("SELECT * FROM gallery")->result_array();
+
+		$data = array(
+			'gallery' => $gallery
+		);
+
+		return $data;
 	}
 }
