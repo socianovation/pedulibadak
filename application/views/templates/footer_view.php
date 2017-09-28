@@ -1,17 +1,18 @@
 <footer>
+	<div class="success" id="success"></div>
 	<div class="container">
-		<form class="row form-message">
+		<form class="row form-message" id="contactForm" method="POST">
 			<div class="col-lg-3 pl0">
 				<div class="fwb fz20 form-message-title ttu">Send Us Message</div>
 			</div>
 			<div class="col-lg-4">
-				<input type="text" class="form-control fwb" placeholder="EMAIL">
+				<input type="text" name="email" class="form-control fwb" placeholder="EMAIL">
 			</div>
 			<div class="col-lg-4">
-				<input type="text" class="form-control fwb" placeholder="Message">
+				<input type="text" name="message" class="form-control fwb" placeholder="Message">
 			</div>
 			<div class="col-lg-1 pr0">
-				<button class="btn btn-red">
+				<button class="btn btn-red" id="btnSubmit">
 					<i class="fa fa-long-arrow-right"></i>
 				</button>
 			</div>
@@ -39,6 +40,7 @@
 	</div>
 </footer>
 
+<script>var base_url = "<?php echo base_url();?>";</script>
 <script src="<?php echo base_url(); ?>assets/scripts/vendor.js"></script>
 <script src="<?php echo base_url(); ?>assets/scripts/plugins.js"></script>
 <script src="<?php echo base_url(); ?>assets/scripts/main.js"></script>
