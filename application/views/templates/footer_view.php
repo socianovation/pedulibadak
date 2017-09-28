@@ -1,15 +1,15 @@
 <footer>
-	<div class="success" id="success"></div>
 	<div class="container">
+	<div class="success" id="success"></div>
 		<form class="row form-message" id="contactForm" method="POST">
 			<div class="col-lg-3 pl0">
 				<div class="fwb fz20 form-message-title ttu">Send Us Message</div>
 			</div>
 			<div class="col-lg-4">
-				<input type="text" name="email" class="form-control fwb" placeholder="EMAIL">
+				<input type="text" id="email" name="email" class="form-control fwb" placeholder="EMAIL">
 			</div>
 			<div class="col-lg-4">
-				<input type="text" name="message" class="form-control fwb" placeholder="Message">
+				<input type="text" id="message" name="message" class="form-control fwb" placeholder="Message">
 			</div>
 			<div class="col-lg-1 pr0">
 				<button class="btn btn-red" id="btnSubmit">
