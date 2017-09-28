@@ -41,6 +41,10 @@ class Home extends MY_Controller {
 		);
 	}
 
+	public function store(){
+		$this->load->view('home/store_view');
+	}
+
 	private function initialize_data_from_db()
 	{
 		/*$home_sliders = $this->db->query("SELECT * FROM home_sliders")->result_array();
