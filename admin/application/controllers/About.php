@@ -3,13 +3,13 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Evolutions extends CI_Controller
+class About extends CI_Controller
 {
     function __construct()
     {
         parent::__construct();
 
-        $this->load->model('Evolutions_model');
+        $this->load->model('About_model');
         $this->load->library('form_validation');
 
         if(!$this->session->userdata('logined') || $this->session->userdata('logined') != true)
@@ -21,27 +21,28 @@ class Evolutions extends CI_Controller
 
     public function index()
     {
-        $this->load->view('evolutions/evolutions_list');
+        $this->load->view('about/about_list');
     } 
     
     public function json() {
         header('Content-Type: application/json');
-        echo $this->Evolutions_model->json();
+        echo $this->About_model->json();
     }
 
     public function read($id) 
     {
-        $row = $this->Evolutions_model->get_by_id($id);
+        $row = $this->About_model->get_by_id($id);
         if ($row) {
             $data = array(
 		'id' => $row->id,
 		'title' => $row->title,
 		'content' => $row->content,
+		'type' => $row->type,
 	    );
-            $this->load->view('evolutions/evolutions_read', $data);
+            $this->load->view('about/about_read', $data);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
-            redirect(site_url('evolutions'));
+            redirect(site_url('about'));
         }
     }
 
@@ -49,12 +50,13 @@ class Evolutions extends CI_Controller
     {
         $data = array(
             'button' => 'Create',
-            'action' => site_url('evolutions/create_action'),
+            'action' => site_url('about/create_action'),
 	    'id' => set_value('id'),
 	    'title' => set_value('title'),
 	    'content' => set_value('content'),
+	    'type' => set_value('type'),
 	);
-        $this->load->view('evolutions/evolutions_form', $data);
+        $this->load->view('about/about_form', $data);
     }
     
     public function create_action() 
@@ -65,32 +67,35 @@ class Evolutions extends CI_Controller
             $this->create();
         } else {
             $data = array(
+		'id' => $this->input->post('id',TRUE),
 		'title' => $this->input->post('title',TRUE),
 		'content' => $this->input->post('content',TRUE),
+		'type' => $this->input->post('type',TRUE),
 	    );
 
-            $this->Evolutions_model->insert($data);
+            $this->About_model->insert($data);
             $this->session->set_flashdata('message', 'Create Record Success');
-            redirect(site_url('evolutions'));
+            redirect(site_url('about'));
         }
     }
     
     public function update($id) 
     {
-        $row = $this->Evolutions_model->get_by_id($id);
+        $row = $this->About_model->get_by_id($id);
 
         if ($row) {
             $data = array(
                 'button' => 'Update',
-                'action' => site_url('evolutions/update_action'),
+                'action' => site_url('about/update_action'),
 		'id' => set_value('id', $row->id),
 		'title' => set_value('title', $row->title),
 		'content' => set_value('content', $row->content),
+		'type' => set_value('type', $row->type),
 	    );
-            $this->load->view('evolutions/evolutions_form', $data);
+            $this->load->view('about/about_form', $data);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
-            redirect(site_url('evolutions'));
+            redirect(site_url('about'));
         }
     }
     
@@ -99,47 +104,51 @@ class Evolutions extends CI_Controller
         $this->_rules();
 
         if ($this->form_validation->run() == FALSE) {
-            $this->update($this->input->post('id', TRUE));
+            $this->update($this->input->post('', TRUE));
         } else {
             $data = array(
+		'id' => $this->input->post('id',TRUE),
 		'title' => $this->input->post('title',TRUE),
 		'content' => $this->input->post('content',TRUE),
+		'type' => $this->input->post('type',TRUE),
 	    );
 
-            $this->Evolutions_model->update($this->input->post('id', TRUE), $data);
+            $this->About_model->update($this->input->post('', TRUE), $data);
             $this->session->set_flashdata('message', 'Update Record Success');
-            redirect(site_url('evolutions'));
+            redirect(site_url('about'));
         }
     }
     
     public function delete($id) 
     {
-        $row = $this->Evolutions_model->get_by_id($id);
+        $row = $this->About_model->get_by_id($id);
 
         if ($row) {
-            $this->Evolutions_model->delete($id);
+            $this->About_model->delete($id);
             $this->session->set_flashdata('message', 'Delete Record Success');
-            redirect(site_url('evolutions'));
+            redirect(site_url('about'));
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
-            redirect(site_url('evolutions'));
+            redirect(site_url('about'));
         }
     }
 
     public function _rules() 
     {
+	$this->form_validation->set_rules('id', 'id', 'trim|required');
 	$this->form_validation->set_rules('title', 'title', 'trim|required');
 	$this->form_validation->set_rules('content', 'content', 'trim|required');
+	$this->form_validation->set_rules('type', 'type', 'trim|required');
 
-	$this->form_validation->set_rules('id', 'id', 'trim');
+	$this->form_validation->set_rules('', '', 'trim');
 	$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
     }
 
     public function excel()
     {
         $this->load->helper('exportexcel');
-        $namaFile = "evolutions.xls";
-        $judul = "evolutions";
+        $namaFile = "about.xls";
+        $judul = "about";
         $tablehead = 0;
         $tablebody = 1;
         $nourut = 1;
@@ -157,16 +166,20 @@ class Evolutions extends CI_Controller
 
         $kolomhead = 0;
         xlsWriteLabel($tablehead, $kolomhead++, "No");
+	xlsWriteLabel($tablehead, $kolomhead++, "Id");
 	xlsWriteLabel($tablehead, $kolomhead++, "Title");
 	xlsWriteLabel($tablehead, $kolomhead++, "Content");
+	xlsWriteLabel($tablehead, $kolomhead++, "Type");
 
-	foreach ($this->Evolutions_model->get_all() as $data) {
+	foreach ($this->About_model->get_all() as $data) {
             $kolombody = 0;
 
             //ubah xlsWriteLabel menjadi xlsWriteNumber untuk kolom numeric
             xlsWriteNumber($tablebody, $kolombody++, $nourut);
+	    xlsWriteNumber($tablebody, $kolombody++, $data->id);
 	    xlsWriteLabel($tablebody, $kolombody++, $data->title);
 	    xlsWriteLabel($tablebody, $kolombody++, $data->content);
+	    xlsWriteLabel($tablebody, $kolombody++, $data->type);
 
 	    $tablebody++;
             $nourut++;
@@ -179,20 +192,20 @@ class Evolutions extends CI_Controller
     public function word()
     {
         header("Content-type: application/vnd.ms-word");
-        header("Content-Disposition: attachment;Filename=evolutions.doc");
+        header("Content-Disposition: attachment;Filename=about.doc");
 
         $data = array(
-            'evolutions_data' => $this->Evolutions_model->get_all(),
+            'about_data' => $this->About_model->get_all(),
             'start' => 0
         );
         
-        $this->load->view('evolutions/evolutions_doc',$data);
+        $this->load->view('about/about_doc',$data);
     }
 
 }
 
-/* End of file Evolutions.php */
-/* Location: ./application/controllers/Evolutions.php */
+/* End of file About.php */
+/* Location: ./application/controllers/About.php */
 /* Please DO NOT modify this information : */
-/* Generated by Harviacode Codeigniter CRUD Generator 2017-09-28 06:04:23 */
+/* Generated by Harviacode Codeigniter CRUD Generator 2017-09-28 06:01:18 */
 /* http://harviacode.com */

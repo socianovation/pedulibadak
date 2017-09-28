@@ -2,6 +2,8 @@
 	function generate_sidemenu()
 	{
 		return '<li>
+		<a href="'.site_url('about_us').'"><i class="fa fa-list fa-fw"></i> About us</a>
+	</li><li>
 		<a href="'.site_url('behaviour').'"><i class="fa fa-list fa-fw"></i> Behaviour</a>
 	</li><li>
 		<a href="'.site_url('evolutions').'"><i class="fa fa-list fa-fw"></i> Evolutions</a>

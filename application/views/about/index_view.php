@@ -5,14 +5,8 @@
     <div class="row content-head">
         <div class="col-md-10 col-md-offset-1">
             <h1 class="content-title">
-                Cras ultricies ligula sed magna dictum porta.
+                <?php echo $about['title'];?>
             </h1>
-            <div class="content-sub-title">
-                SNOW ICHING SUGAR
-            </div>
-            <div class="content-author ff-times">
-                Created by Sarah - 21 Aug 2016
-            </div>
         </div>
     </div>
     <div class="row">

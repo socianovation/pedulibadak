@@ -28,7 +28,7 @@
 				HOME
 			</a>
 			<span class="mr5 ml5 fwn">|</span>
-			<a href="<?php echo basr_url('home/edu');?>" class="ttu">
+			<a href="<?php echo base_url('home/edu');?>" class="ttu">
 				EDUCATION
 			</a>
 			<span class="mr5 ml5 fwn">|</span>

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class About extends MY_Controller {
+class About_us extends MY_Controller {
 
 	public function index()
 	{
